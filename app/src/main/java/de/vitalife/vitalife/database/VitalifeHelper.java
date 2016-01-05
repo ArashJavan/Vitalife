@@ -19,7 +19,7 @@ import de.vitalife.vitalife.util.LogUtils;
 public class VitalifeHelper extends SQLiteOpenHelper {
 
     private static final String TAG = LogUtils.makeLogTag(VitalifeHelper.class);
-    private static final String DB_NAME = "usda_old.sql3";
+    private static final String DB_NAME = "usda.sql3";
     private static final int DB_VERSION = 1;
     private final String  DB_PATH;
 
