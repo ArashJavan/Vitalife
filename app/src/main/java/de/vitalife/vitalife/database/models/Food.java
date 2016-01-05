@@ -15,83 +15,83 @@ public class Food {
     private float mFatFactor;
     private float mCalorieFactor;
 
-    private int getId() {
+    public int getId() {
         return mId;
     }
 
-    private void setId(int id) {
+    public void setId(int id) {
         mId = id;
     }
 
-    private int getFoodGrp() {
+    public int getFoodGrp() {
         return mFoodGrp;
     }
 
-    private void setFoodGrp(int foodGrp) {
+    public void setFoodGrp(int foodGrp) {
         mFoodGrp = foodGrp;
     }
 
-    private String getLongDesc() {
+    public String getLongDesc() {
         return mLongDesc;
     }
 
-    private void setLongDesc(String longDesc) {
+    public void setLongDesc(String longDesc) {
         mLongDesc = longDesc;
     }
 
-    private String getShortDesc() {
+    public String getShortDesc() {
         return mShortDesc;
     }
 
-    private void setShortDesc(String shortDesc) {
+    public void setShortDesc(String shortDesc) {
         mShortDesc = shortDesc;
     }
 
-    private String getCommonName() {
+    public String getCommonName() {
         return mCommonName;
     }
 
-    private void setCommonName(String commonName) {
+    public void setCommonName(String commonName) {
         mCommonName = commonName;
     }
 
-    private String getManufacName() {
+    public String getManufacName() {
         return mManufacName;
     }
 
-    private void setManufacName(String manufacName) {
+    public void setManufacName(String manufacName) {
         mManufacName = manufacName;
     }
 
-    private float getNitrogenFactor() {
+    public float getNitrogenFactor() {
         return mNitrogenFactor;
     }
 
-    private void setNitrogenFactor(float nitrogenFactor) {
+    public void setNitrogenFactor(float nitrogenFactor) {
         mNitrogenFactor = nitrogenFactor;
     }
 
-    private float getProteinFactor() {
+    public float getProteinFactor() {
         return mProteinFactor;
     }
 
-    private void setProteinFactor(float proteinFactor) {
+    public void setProteinFactor(float proteinFactor) {
         mProteinFactor = proteinFactor;
     }
 
-    private float getFatFactor() {
+    public float getFatFactor() {
         return mFatFactor;
     }
 
-    private void setFatFactor(float fatFactor) {
+    public void setFatFactor(float fatFactor) {
         mFatFactor = fatFactor;
     }
 
-    private float getCalorieFactor() {
+    public float getCalorieFactor() {
         return mCalorieFactor;
     }
 
-    private void setCalorieFactor(float calorieFactor) {
+    public void setCalorieFactor(float calorieFactor) {
         mCalorieFactor = calorieFactor;
     }
 }

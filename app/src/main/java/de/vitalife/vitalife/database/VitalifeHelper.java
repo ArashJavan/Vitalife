@@ -1,6 +1,5 @@
 package de.vitalife.vitalife.database;
 
-import android.content.ContentValues;
 import android.content.Context;
 import android.content.res.AssetManager;
 import android.database.sqlite.SQLiteDatabase;
@@ -20,12 +19,14 @@ import de.vitalife.vitalife.util.LogUtils;
 public class VitalifeHelper extends SQLiteOpenHelper {
 
     private static final String TAG = LogUtils.makeLogTag(VitalifeHelper.class);
-    private static final String DB_NAME = "usda.sql3";
+    private static final String DB_NAME = "usda_old.sql3";
     private static final int DB_VERSION = 1;
     private final String  DB_PATH;
 
     private Context mContext;
     private SQLiteDatabase mDataBase;
+
+    private static VitalifeHelper mVitalifeHelper;
 
     public VitalifeHelper(Context context) {
         super(context, DB_NAME, null, DB_VERSION);
@@ -125,5 +126,12 @@ public class VitalifeHelper extends SQLiteOpenHelper {
         out.flush();
         out.close();
         in.close();
+    }
+
+    public static VitalifeHelper createHelper(Context context) {
+        if (mVitalifeHelper == null) {
+            mVitalifeHelper = new VitalifeHelper(context);
+        }
+        return mVitalifeHelper;
     }
 }

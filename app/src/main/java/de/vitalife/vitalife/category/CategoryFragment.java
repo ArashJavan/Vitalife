@@ -16,9 +16,12 @@ import android.widget.AbsListView;
 import android.widget.ImageView;
 import android.widget.TextView;
 
+import java.util.ArrayList;
+
 import de.vitalife.vitalife.R;
+import de.vitalife.vitalife.database.Foods;
 import de.vitalife.vitalife.database.VitalifeHelper;
-import de.vitalife.vitalife.database.provider.DataBaseManager;
+import de.vitalife.vitalife.database.models.Food;
 import de.vitalife.vitalife.util.BaseCursorAdapater;
 import de.vitalife.vitalife.util.LogUtils;
 
@@ -30,7 +33,7 @@ public class CategoryFragment extends Fragment {
     public static final String TAG = LogUtils.makeLogTag(CategoryFragment.class);
 
     private RecyclerView mCatgoryRecyclerView;
-    private DataBaseManager mDbManager;
+    // private DataBaseManager mDbManager;
 
      @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
@@ -39,16 +42,31 @@ public class CategoryFragment extends Fragment {
 
          mCatgoryRecyclerView = (RecyclerView) v.findViewById(R.id.recycler_categorylist);
 
+         ArrayList<String> arrTblNames = new ArrayList<String>();
+         VitalifeHelper vitalifeHelper  = new VitalifeHelper(getActivity());
+         SQLiteDatabase db = vitalifeHelper.getReadableDatabase();
+         Cursor c = db.rawQuery("SELECT name FROM sqlite_master WHERE type='table'", null);
+
+         if (c.moveToFirst()) {
+             while ( !c.isAfterLast() ) {
+                 arrTblNames.add( c.getString( c.getColumnIndex("name")) );
+                 c.moveToNext();
+             }
+         }
+
+         Foods foods = new Foods(getActivity());
+         ArrayList<Food> fds = (ArrayList) foods.getAll();
+
          // VitalifeHelper vitalifeHelper = new VitalifeHelper(getActivity());
          // SQLiteDatabase sqLiteDatabase = vitalifeHelper.openDatabase();
          // Cursor cursor = sqLiteDatabase.rawQuery("SELECT * FROM food_group", null);
 
-         mDbManager = DataBaseManager.getInstance(getActivity());
-         Cursor cursor = mDbManager.getFoodGroups();
-         CategoryAdapter adapter =  new CategoryAdapter(getActivity(), cursor);
-         mCatgoryRecyclerView.setLayoutManager(new GridLayoutManager(getActivity(),2));
-         mCatgoryRecyclerView.setItemAnimator(new DefaultItemAnimator());
-         mCatgoryRecyclerView.setAdapter(adapter);
+         // mDbManager = DataBaseManager.getInstance(getActivity());
+         // Cursor cursor = mDbManager.getFoodGroups();
+         // CategoryAdapter adapter =  new CategoryAdapter(getActivity(), cursor);
+         // mCatgoryRecyclerView.setLayoutManager(new GridLayoutManager(getActivity(),2));
+         // mCatgoryRecyclerView.setItemAnimator(new DefaultItemAnimator());
+         // mCatgoryRecyclerView.setAdapter(adapter);
 
 
          return v;
