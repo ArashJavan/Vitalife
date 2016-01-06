@@ -12,14 +12,14 @@ import de.vitalife.vitalife.database.models.Food;
 /**
  * Created by milux on 05.01.16.
  */
-public class Foods extends Table<Food> {
+public class FoodTable extends Table<Food> {
 
     /* Table name */
     public static final String NAME = "food";
 
     /* Column names */
     public static final String ID = "id";
-    public static final String FOOD_GRP_ID = "food_groupt_id";
+    public static final String FOOD_GRP_ID = "food_group_id";
     public static final String LONG_DESC = "long_desc";
     public static final String SHORT_DESC = "short_desc";
     public static final String COMMON_NAMES = "common_names";
@@ -34,12 +34,12 @@ public class Foods extends Table<Food> {
     public static final int INDEX_FOOD_GRP_ID = 1;
     public static final int INDEX_LONG_DESC = 2;
     public static final int INDEX_SHORT_DESC = 3;
-    public static final int INDEX_COOMON_NAMES = 5;
-    public static final int INDEX_MANUF_NAME = 6;
-    public static final int INDEX_NITROGEN_FACTOR = 11;
-    public static final int INDEX_PROTEIN_FACTOR = 12;
-    public static final int INDEX_FAT_FACTOR = 13;
-    public static final int INDEX_CALORIE_FACTOR = 14;
+    public static final int INDEX_COOMON_NAMES = 4;
+    public static final int INDEX_MANUF_NAME = 5;
+    public static final int INDEX_NITROGEN_FACTOR = 6;
+    public static final int INDEX_PROTEIN_FACTOR = 7;
+    public static final int INDEX_FAT_FACTOR = 8;
+    public static final int INDEX_CALORIE_FACTOR = 9;
 
     private static final String[] mColumns = new String[] {
         ID,
@@ -54,7 +54,7 @@ public class Foods extends Table<Food> {
         CALORIE_FACTOR
     };
 
-    public Foods(Context context) {
+    public FoodTable(Context context) {
         super(context);
         open();
     }

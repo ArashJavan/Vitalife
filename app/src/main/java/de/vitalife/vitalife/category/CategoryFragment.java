@@ -12,14 +12,13 @@ import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.AbsListView;
 import android.widget.ImageView;
 import android.widget.TextView;
 
 import java.util.ArrayList;
 
 import de.vitalife.vitalife.R;
-import de.vitalife.vitalife.database.Foods;
+import de.vitalife.vitalife.database.FoodTable;
 import de.vitalife.vitalife.database.VitalifeHelper;
 import de.vitalife.vitalife.database.models.Food;
 import de.vitalife.vitalife.util.BaseCursorAdapater;
@@ -54,7 +53,7 @@ public class CategoryFragment extends Fragment {
              }
          }
 
-         Foods foods = new Foods(getActivity());
+         FoodTable foods = new FoodTable(getActivity());
          ArrayList<Food> fds = (ArrayList) foods.getAll();
 
          // VitalifeHelper vitalifeHelper = new VitalifeHelper(getActivity());
