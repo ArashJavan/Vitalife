@@ -17,7 +17,7 @@ import de.vitalife.vitalife.database.VitalifeDB;
  * Created by milux on 14.09.15.
  */
 @ModelContainer
-@Table(database = VitalifeDB.class, name = "mFoodGroup")
+@Table(database = VitalifeDB.class, name = "food_group")
 public class FoodGroup extends BaseModel {
 
     @Column(name = "id")
@@ -34,7 +34,7 @@ public class FoodGroup extends BaseModel {
         if (mFoods == null || mFoods.isEmpty()) {
             mFoods = SQLite.select()
                     .from(Food.class)
-                    .where(Food_Table.mFoodGroup_id.eq(mId))
+                    .where(Food_Table.food_group_id.eq(mId))
                     .queryList();
         }
         return mFoods;

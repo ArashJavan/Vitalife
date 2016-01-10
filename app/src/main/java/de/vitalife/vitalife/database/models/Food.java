@@ -1,9 +1,6 @@
 package de.vitalife.vitalife.database.models;
 
-import com.raizlabs.android.dbflow.annotation.Column;
-import com.raizlabs.android.dbflow.annotation.ForeignKey;
-import com.raizlabs.android.dbflow.annotation.PrimaryKey;
-import com.raizlabs.android.dbflow.annotation.Table;
+import com.raizlabs.android.dbflow.annotation.*;
 import com.raizlabs.android.dbflow.config.FlowManager;
 import com.raizlabs.android.dbflow.structure.BaseModel;
 import com.raizlabs.android.dbflow.structure.container.ForeignKeyContainer;
@@ -11,7 +8,7 @@ import com.raizlabs.android.dbflow.structure.container.ForeignKeyContainer;
 import de.vitalife.vitalife.database.VitalifeDB;
 
 /**
- * Created by milux on 14.09.15.
+ * Created by
  */
 @Table(database = VitalifeDB.class, name = "food")
 public class Food extends BaseModel {
@@ -21,7 +18,11 @@ public class Food extends BaseModel {
     int mId;
 
     @Column(name = "food_group_id")
-    @ForeignKey(saveForeignKeyModel = false)
+    @ForeignKey(saveForeignKeyModel = false,
+            references = {
+                    @ForeignKeyReference(columnType = Integer.class, columnName = "food_group_id",
+                    foreignKeyColumnName = "id", referencedFieldIsPackagePrivate = true)
+            })
     ForeignKeyContainer<FoodGroup> mFoodGroup;
 
     @Column(name = "long_desc")
