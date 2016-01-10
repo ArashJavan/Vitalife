@@ -6,7 +6,7 @@
     style="@style/HeaderBar"
     android:layout_width="match_parent"
     android:layout_height="?actionBarSize"
-    nutrinfo:theme="@style/ActionBarThemeOverlay"
+    android:theme="@style/ActionBarThemeOverlay"
     nutrinfo:popupTheme="@style/ActionBarPopupThemeOverlay">
 
 </android.support.v7.widget.Toolbar>

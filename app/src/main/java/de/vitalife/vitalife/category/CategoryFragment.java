@@ -3,11 +3,8 @@ package de.vitalife.vitalife.category;
 
 import android.content.Context;
 import android.database.Cursor;
-import android.database.sqlite.SQLiteDatabase;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
-import android.support.v7.widget.DefaultItemAnimator;
-import android.support.v7.widget.GridLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -15,12 +12,13 @@ import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.TextView;
 
-import java.util.ArrayList;
+import com.raizlabs.android.dbflow.sql.language.SQLite;
+
+import java.util.List;
 
 import de.vitalife.vitalife.R;
-import de.vitalife.vitalife.database.FoodTable;
-import de.vitalife.vitalife.database.VitalifeHelper;
 import de.vitalife.vitalife.database.models.Food;
+import de.vitalife.vitalife.database.models.FoodGroup;
 import de.vitalife.vitalife.util.BaseCursorAdapater;
 import de.vitalife.vitalife.util.LogUtils;
 
@@ -41,20 +39,12 @@ public class CategoryFragment extends Fragment {
 
          mCatgoryRecyclerView = (RecyclerView) v.findViewById(R.id.recycler_categorylist);
 
-         ArrayList<String> arrTblNames = new ArrayList<String>();
-         VitalifeHelper vitalifeHelper  = new VitalifeHelper(getActivity());
-         SQLiteDatabase db = vitalifeHelper.getReadableDatabase();
-         Cursor c = db.rawQuery("SELECT name FROM sqlite_master WHERE type='table'", null);
 
-         if (c.moveToFirst()) {
-             while ( !c.isAfterLast() ) {
-                 arrTblNames.add( c.getString( c.getColumnIndex("name")) );
-                 c.moveToNext();
-             }
-         }
-
-         FoodTable foods = new FoodTable(getActivity());
-         ArrayList<Food> fds = (ArrayList) foods.getAll();
+         List<Food> foods = SQLite.select().from(Food.class).queryList();
+         List<FoodGroup> foodGroups = SQLite.select().from(FoodGroup.class).queryList();
+         Food food = foods.get(0);
+         FoodGroup fg = food.getFoodGroup();
+         List<Food> foods1 = fg.getFoods();
 
          // VitalifeHelper vitalifeHelper = new VitalifeHelper(getActivity());
          // SQLiteDatabase sqLiteDatabase = vitalifeHelper.openDatabase();
