@@ -29,6 +29,7 @@ dependencies {
     compile 'com.android.support:support-v4:23.1.1'
     compile 'com.android.support:appcompat-v7:23.1.1'
     apt 'com.github.Raizlabs.DBFlow:dbflow-processor:3.0.0-beta1'
-    compile "com.github.Raizlabs.DBFlow:dbflow-core:3.0.0-beta1"
-    compile "com.github.Raizlabs.DBFlow:dbflow:3.0.0-beta1"
+    compile 'com.github.Raizlabs.DBFlow:dbflow-core:3.0.0-beta1'
+    compile 'com.github.Raizlabs.DBFlow:dbflow:3.0.0-beta1'
+    compile 'com.android.support:design:23.1.1'
 }
