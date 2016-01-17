@@ -15,6 +15,10 @@ import java.util.zip.Inflater;
  */
 public class DiaryFragment extends Fragment {
 
+    public DiaryFragment() {
+        // Required empty public constructor
+    }
+
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {

@@ -12,6 +12,7 @@ import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.TextView;
 
+import android.widget.Toast;
 import com.raizlabs.android.dbflow.sql.language.SQLite;
 
 import java.util.List;
@@ -33,19 +34,26 @@ public class CategoryFragment extends Fragment {
     private RecyclerView mCatgoryRecyclerView;
     // private DataBaseManager mDbManager;
 
+
+    public CategoryFragment() {
+        // Required empty public constructor
+    }
+
      @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
+
          View v = inflater.inflate(R.layout.fragment_categorylist, container, false);
 
          mCatgoryRecyclerView = (RecyclerView) v.findViewById(R.id.recycler_categorylist);
-
 
          List<Food> foods = SQLite.select().from(Food.class).queryList();
          List<FoodGroup> foodGroups = SQLite.select().from(FoodGroup.class).queryList();
          Food food = foods.get(0);
          FoodGroup fg = food.getFoodGroup();
          List<Food> foods1 = fg.getFoods();
+
+         Toast.makeText(getActivity(), "Category", Toast.LENGTH_SHORT).show();
 
          // VitalifeHelper vitalifeHelper = new VitalifeHelper(getActivity());
          // SQLiteDatabase sqLiteDatabase = vitalifeHelper.openDatabase();
@@ -57,7 +65,6 @@ public class CategoryFragment extends Fragment {
          // mCatgoryRecyclerView.setLayoutManager(new GridLayoutManager(getActivity(),2));
          // mCatgoryRecyclerView.setItemAnimator(new DefaultItemAnimator());
          // mCatgoryRecyclerView.setAdapter(adapter);
-
 
          return v;
     }

@@ -8,14 +8,19 @@
     <!-- Cardview -Items -->
     <string name="cat_food_default_text">food category</string>
     <string name="number_of_foods_default">123</string>
-    <string name="nav_diet">Diet</string>
-    <string name="nav_me">Me</string>
-    <string name="nav_friends">Friends</string>
+
+    <!-- Navigation drawer items titile -->
     <string name="nav_item_diary">Diary</string>
-    <string name="nav_item_me">Me</string>
     <string name="nav_item_foods">Foods</string>
     <string name="nav_item_category">Categories</string>
+
+    <!-- Navigation drawer parameters -->
     <string name="nav_drawer_open">Open</string>
     <string name="nav_drawer_close">Close</string>
+
+    <!-- Fragment Titles -->
+    <string name="title_category">Category</string>
+    <string name="title_diary">Diary</string>
+    <string name="title_foods">Foods</string>
 
 </resources>
