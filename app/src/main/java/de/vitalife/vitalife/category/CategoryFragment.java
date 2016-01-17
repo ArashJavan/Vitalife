@@ -28,6 +28,7 @@ import de.vitalife.vitalife.util.LogUtils;
 public class CategoryFragment extends Fragment {
 
     public static final String TAG = LogUtils.makeLogTag(CategoryFragment.class);
+    public static final String TTILE = "Category";
 
     private RecyclerView mCatgoryRecyclerView;
     // private DataBaseManager mDbManager;
@@ -61,6 +62,15 @@ public class CategoryFragment extends Fragment {
          return v;
     }
 
+    public static CategoryFragment newInstance() {
+
+        Bundle args = new Bundle();
+
+        CategoryFragment fragment = new CategoryFragment();
+        fragment.setArguments(args);
+        return fragment;
+    }
+
     private class CategoryAdapter extends BaseCursorAdapater<CategoryAdapter.ViewHolder> {
 
         public CategoryAdapter(Context context, Cursor cursor) {
@@ -80,7 +90,6 @@ public class CategoryFragment extends Fragment {
             String catetgoryName = cursor.getString(1);
             holder.mCategory.setText(catetgoryName);
         }
-
 
         /**
          * This Viewholder describes an item view for a category
